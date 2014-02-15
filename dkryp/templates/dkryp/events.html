@@ -1,0 +1,9 @@
+<a href="{% url home %}">home</a>
+
+{% for event in events %}
+<h3>{{ event.title }}</h3> 
+<p>{{ event.category }}</p>
+<p>{{ event.venue }}</p>
+<p>{{ event.date_of_event }}</p>
+<p>{{ event.description }}</p><br>
+{% endfor %}

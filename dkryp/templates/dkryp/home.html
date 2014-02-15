@@ -1,0 +1,11 @@
+{% load static from staticfiles %}
+<html>
+    <head>
+        <title>Home - DKRYP Offical website.</title>
+        <link rel="shortcut icon" href='{% static "img/favicon.ico" %}' />
+    </head>
+    <body>
+        <a href="{% url events %}">Events</a> | 
+        <a href="{% url gallery %}">Gallary</a>
+    </body>
+</html>

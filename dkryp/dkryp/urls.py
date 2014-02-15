@@ -1,17 +1,19 @@
+from django.conf import settings
 from django.conf.urls import patterns, include, url
+from django.contrib import admin
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'dkryp.views.home', name='home'),
-    # url(r'^dkryp/', include('dkryp.foo.urls')),
+    # URL For Media
+    url(r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:], 'django.views.static.serve',
+       {'document_root': settings.MEDIA_ROOT}),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+)
 
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+urlpatterns += patterns('dkapp.views',
+    url(r'^$', 'home', name='home'),
+    url(r'^events/$', 'events', name='events'),
+    url(r'^gallery/$', 'gallery', name='gallery'),
 )

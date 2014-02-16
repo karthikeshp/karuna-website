@@ -1,11 +1,14 @@
+{% extends "base.html"%}
 {% load static from staticfiles %}
-<html>
-    <head>
-        <title>Home - DKRYP Offical website.</title>
-        <link rel="shortcut icon" href='{% static "img/favicon.ico" %}' />
-    </head>
-    <body>
-        <a href="{% url events %}">Events</a> | 
-        <a href="{% url gallery %}">Gallary</a>
-    </body>
-</html>
+
+{% block navigator %}
+              <ul class="nav">
+                <li class="active"><a href="{% url home %}">Home</a></li>
+                <li><a href="{% url products %}">Products</a></li>
+                <li><a href="{% url events %}">Events</a></li>
+                <li><a href="{% url gallery %}">Gallary</a></li>
+                <li><a href="{% url aboutus %}">About</a></li>
+                <li><a href="{% url contactus %}">Contact</a></li>
+              </ul>
+{% endblock %}
+

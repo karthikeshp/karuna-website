@@ -14,6 +14,9 @@ urlpatterns = patterns('',
 
 urlpatterns += patterns('dkapp.views',
     url(r'^$', 'home', name='home'),
+    url(r'^products/$', 'products', name='products'),
     url(r'^events/$', 'events', name='events'),
     url(r'^gallery/$', 'gallery', name='gallery'),
+    url(r'^aboutus/$', 'aboutus', name='aboutus'),
+    url(r'^contactus/$', 'contactus', name='contactus'),
 )

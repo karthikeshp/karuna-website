@@ -1,0 +1,33 @@
+<div class="pagination">
+  <ul>
+    {% if pagi.number == 1 %}
+    <li class="disabled"><a href="javascript:void(0);">Prev</a></li>
+    {% else %}
+    <li><a href="?page={{ pagi.previous_page_number }}">Prev</a></li>
+    {% endif %}
+    
+    {% if pagi.number|add:-2 >= 1 %}
+    <li><a href="?page={{ pagi.number|add:-2 }}">{{ pagi.number|add:-2 }}</a></li>
+    {% endif %}
+    
+    {% if pagi.has_previous %}
+    <li><a href="?page={{ pagi.number|add:-1 }}">{{ pagi.number|add:-1 }}</a></li>
+    {% endif %}
+    
+    <li class="active"><a href="?page={{ pagi.number }}">{{ pagi.number }}</a></li>
+
+    {% if pagi.has_next %}
+    <li><a href="?page={{ pagi.number|add:1 }}">{{ pagi.number|add:1 }}</a></li>
+    {% endif %}
+
+    {% if pagi.number|add:2 <= pagi.paginator.num_pages %}
+    <li><a href="?page={{ pagi.number|add:2 }}">{{ pagi.number|add:2 }}</a></li>
+    {% endif %}
+
+    {% if pagi.number == pagi.paginator.num_pages %}
+    <li class="disabled"><a href="javascript:void(0);">Next</a></li>
+    {% else %}
+    <li><a href="?page={{ pagi.next_page_number }}">Next</a></li>
+    {% endif %}
+  </ul>
+</div>

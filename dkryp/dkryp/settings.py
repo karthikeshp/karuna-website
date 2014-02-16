@@ -153,3 +153,9 @@ LOGGING = {
         },
     }
 }
+
+
+# Extra settings
+NUM_OF_PDT = 10
+NUM_OF_EVT = 5
+NUM_OF_IMG = 15

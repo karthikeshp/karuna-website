@@ -1,9 +1,46 @@
-<a href="{% url home %}">home</a>
+{% extends "base.html"%}
+{% load static from staticfiles %}
 
-{% for event in events %}
-<h3>{{ event.title }}</h3> 
-<p>{{ event.category }}</p>
-<p>{{ event.venue }}</p>
-<p>{{ event.date_of_event }}</p>
-<p>{{ event.description }}</p><br>
-{% endfor %}
+{% block navigator %}
+              <ul class="nav">
+                <li><a href="{% url home %}">Home</a></li>
+                <li><a href="{% url products %}">Products</a></li>
+                <li class="active"><a href="{% url events %}">Events</a></li>
+                <li><a href="{% url gallery %}">Gallary</a></li>
+                <li><a href="{% url aboutus %}">About</a></li>
+                <li><a href="{% url contactus %}">Contact</a></li>
+              </ul>
+{% endblock %}
+{% block bigcontent %}{% endblock %}
+{% block content %}
+    <div class="row tgap">
+        <div class="span10">
+            <legend>News and Events</legend>
+            <p>For your convenience, our company has organised your events. Business Events highlight past and upcoming international conventions and exhibitions hosted in Malaysia. Dates for major national sports, arts and cultural events can be found in Malaysia Events & Festivals.</p>
+            <br>
+
+            {% for event in events %}
+            <div class='row well lgap'>
+                <div class="{% if event.gallery_set.exists %}span6{% else %}span9{% endif %}">
+                    <h3>{{ event.title|capfirst }}</h3> 
+                    <p>{{ event.category }}</p>
+                    <p>{{ event.venue }}</p>
+                    <p>{{ event.date_of_event }}</p>
+                    <p>{{ event.description }}</p><br>
+                </div>
+                {% if event.gallery_set.exists %}
+                <div class="span3">
+                    <a href="/media/{{ event.gallery_set.all.0.picture }}" class="thumbnail">
+                        <img src="/media/{{ event.gallery_set.all.0.picture }}"></img>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% with pagi=events %}
+    {% include "pagination.html" %}
+    {% endwith %}
+{% endblock %}
+

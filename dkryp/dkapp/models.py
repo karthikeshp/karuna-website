@@ -12,6 +12,13 @@ EVENT_CATEGORY = (
     ('cat3', 'cat3'),    
 )
 
+PRODUCT_CATEGORY = (
+    ('none', 'None'),                
+    ('cat1', 'cat1'),
+    ('cat2', 'cat2'),
+    ('cat3', 'cat3'),    
+)
+
 class Event(models.Model):
     title = models.CharField(max_length=100, default='untitled', help_text='Enter the event title')
     category = models.CharField(max_length=20, default='none', choices=EVENT_CATEGORY, help_text='Select the type of category')
@@ -40,3 +47,10 @@ class Gallery(models.Model):
 @receiver(post_delete, sender=Gallery)
 def delete_image_too(sender, instance, **kwargs):
     os.remove(os.path.join(settings.MEDIA_ROOT, str(instance.picture)))
+
+class Product(models.Model):
+    name = models.CharField(max_length=100, default='noproduct', help_text='Enter the product name')
+    category = models.CharField(max_length=20, default='none', choices=PRODUCT_CATEGORY, help_text='Select the type of product')
+    description = models.TextField(null=True, blank=True, help_text="Product description")
+    picture = models.FileField(upload_to='product', null=True, blank=True, help_text='Choose picture of the product')
+    launched = models.DateField(help_text='Date of product launched')

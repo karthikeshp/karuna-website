@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+{% load static from staticfiles %}
+
+{% block navigator %}
+              <ul class="nav">
+                <li><a href="{% url home %}">Home</a></li>
+                <li><a href="{% url products %}">Products</a></li>
+                <li><a href="{% url events %}">Events</a></li>
+                <li><a href="{% url gallery %}">Gallary</a></li>
+                <li class="active"><a href="{% url aboutus %}">About</a></li>
+                <li><a href="{% url contactus %}">Contact</a></li>
+              </ul>
+{% endblock %}
+
+{% block bigcontent %}{% endblock %}
+{% block content %}
+        <div class="row tgap">
+          <div class="span7">
+            <legend>About us</legend>
+            <p>Global Sources is a leading business-to-business media company and a primary facilitator of trade with Greater China.</p>
+
+            <p>The core business facilitates trade between Asia and the world using English-language media such as online marketplaces (GlobalSources.com), print and digital magazines, sourcing research reports, private sourcing events, and trade shows.</p>
+
+            <p>More than 1 million international buyers, including 95 of the world's top 100 retailers, use these services to obtain product and company information to help them source more profitably from overseas supply markets. These services also provide suppliers with integrated marketing solutions to build corporate image, generate sales leads and win orders from buyers in more than 240 countries and territories.</p>
+
+            </p>Global Sources' other businesses provide Chinese-language media to companies selling to and within Greater China. These services include online web sites, print and digital magazines, seminars and trade shows. In mainland China, Global Sources has a network of more than 30 office locations and a community of more than 4 million registered online users and magazine readers of its Chinese-language media.</p>
+          </div>
+          <div class="span3">
+            <img src='{% static "img/aboutus.jpg" %}' />
+          </div>
+        </div>
+{% endblock %}

@@ -102,3 +102,8 @@ body{
 .lsize{
   font-size: 25px !important;
 }
+.ani-highlight a{
+  -webkit-transition: all .1s linear;
+  -moz-transition: all .1s linear;
+  transition: all .1s linear;
+}

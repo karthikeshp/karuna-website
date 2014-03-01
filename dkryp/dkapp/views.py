@@ -13,8 +13,23 @@ from datetime import datetime
 from models import *
 
 def home(request):
+    event_list = Event.objects.order_by('date_of_event')
+    paginator = Paginator(event_list, settings.NUM_OF_EVT)
+
+    page = request.GET.get('page')
+    try:
+        events = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        events = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        events = paginator.page(paginator.num_pages)
+    
     return render_to_response('dkryp/home.html',
-        {}, context_instance=RequestContext(request))
+        {
+            'events': events,
+        }, context_instance=RequestContext(request))
 
 def products(request):
     product_list = Product.objects.order_by('-launched')

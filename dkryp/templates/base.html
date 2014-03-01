@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{%block title%}{%endblock%}DKRYP Offical website.</title>
+    <title>{% block title %}{% endblock %}DKRYP Offical website.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -67,8 +67,10 @@
        </div>
         <div class="span4">
           <h2>Events</h2>
+          {% block events %}
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
+          {% endblock %}
         </div>
       </div>
       {% endblock %}
@@ -106,5 +108,6 @@
     <script src="{% static "js/bootstrap-collapse.js" %}"></script>
     <script src="{% static "js/bootstrap-carousel.js" %}"></script>
     <script src="{% static "js/bootstrap-typeahead.js" %}"></script>
+    {% block script %}{% endblock %}
   </body>
 </html>

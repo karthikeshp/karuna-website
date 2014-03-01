@@ -160,3 +160,14 @@ hr{
   border-bottom: 1px solid gray;
   padding: 10px 5px;
 }
+.marqueeElement {
+    height:58px;
+    width: 300px;
+    position:absolute;
+}
+#mholder {
+    height: 150px;
+    width: 300px;
+    position: absolute;
+    overflow: hidden;
+}

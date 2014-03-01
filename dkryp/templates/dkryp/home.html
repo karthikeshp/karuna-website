@@ -12,3 +12,16 @@
               </ul>
 {% endblock %}
 
+{% block events %}
+    <div id='mholder'>
+    {% for event in events %}
+        <a href='{% url events %}' class="marqueeElement">
+            {{ event.title|capfirst }} ({{ event.date_of_event|date:'b d, Y'|capfirst }})
+        </a>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static "js/custom-scroller.js" %}"></script>
+{% endblock %}

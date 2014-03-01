@@ -1,13 +1,15 @@
 {% extends "base.html"%}
 {% load static from staticfiles %}
 
+{% block title %}Products - {% endblock %}
+
 {% block navigator %}
               <ul class="nav">
                 <li><a href="{% url home %}">Home</a></li>
                 <li class="active"><a href="{% url products %}">Products</a></li>
                 <li><a href="{% url events %}">Events</a></li>
                 <li><a href="{% url gallery %}">Gallary</a></li>
-                <li><a href="{% url aboutus %}">About</a></li>
+                <li><a href="{% url aboutus %}">About us</a></li>
                 <li><a href="{% url contactus %}">Contact</a></li>
               </ul>
 {% endblock %}
@@ -21,8 +23,9 @@
             <br>
 
             {% for product in products %}
-            <div class='span4 well'>
-                <h3>{{ product.name|capfirst }}</h3> 
+            <h4 class="evnt-title">{{ product.name|capfirst }}</h4>
+            <div class='well'>
+                <!-- <h3>{{ product.name|capfirst }}</h3> -->
                 <p>{{ product.category }}</p>
                 <p>{{ product.launched }}</p>
                 {% if product.picture %}

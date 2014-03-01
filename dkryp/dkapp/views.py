@@ -36,7 +36,7 @@ def products(request):
         }, context_instance=RequestContext(request))
 
 def events(request):
-    event_list = Event.objects.order_by('-date_of_event')
+    event_list = Event.objects.order_by('date_of_event')
     paginator = Paginator(event_list, settings.NUM_OF_EVT)
 
     page = request.GET.get('page')

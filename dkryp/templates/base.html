@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>DKRYP Offical website.</title>
+    <title>{%block title%}{%endblock%}DKRYP Offical website.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -30,11 +30,11 @@
 
   <body>
 
-    <div class="container">
+    <div class="container tgap">
 
       <div class="masthead">
-        <h3 class="muted">Company Logo</h3>
-        <div class="navbar navbar-inverse ani-highlight">
+        <h3 class="muted top-banner">Company Logo</h3>
+        <div class="navbar ani-highlight">
           <div class="navbar-inner">
             <div class="container">
               {% block navigator %}
@@ -45,7 +45,7 @@
       </div>
 
       {% block bigcontent %}
-      <div class="jumbotron well">
+      <div class="well">
         <h2>Marketing stuff!</h2>
         <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
       </div>
@@ -56,17 +56,17 @@
       {% block content %}
       <div class="row-fluid">
         <div class="span4 need-sep">
-          <h2>Heading</h2>
+          <h2>Our Mission</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div>
         <div class="span4 need-sep">
-          <h2>Heading</h2>
+          <h2>Our Vision</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
        </div>
         <div class="span4">
-          <h2>Heading</h2>
+          <h2>Events</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </div>

@@ -71,7 +71,17 @@ body {
 
 /* Application styles */
 body{
+  background-color: #E8EDF5 !important;
   background: url(../img/body-img.jpg) repeat-x;
+}
+legend{
+  border-bottom: 1px solid gray;
+}
+legend, h1, h2, h3, h4{
+  color: #036CDD;
+}
+hr{
+  border-bottom: 1px solid gray;
 }
 .tgap{
   margin-top: 50px;
@@ -85,13 +95,18 @@ body{
 .form-text{
   width: 350px;
 }
+.top-banner{
+  height: 75px;
+  margin-top: -30px;
+  padding-bottom: 5px;
+}
 .contact-img{
   height: 125px;
   width: 500px;
   max-width: 500px;
 }
 .need-sep{
-  border-right: 1px solid #e3e3e3;
+  border-right: 1px solid gray;/*#e3e3e3;*/
 }
 .pagination{
   text-align: center;
@@ -109,4 +124,39 @@ body{
 }
 .no-lines, .no-lines:hover, .no-lines:active{
   text-decoration: none;
+}
+.navbar-inner {
+  background-color: #3d3df6; 
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+}
+.navbar .nav>li>a {
+  color: white;
+  text-shadow: none;
+}
+.navbar .nav>li>a:focus, .navbar .nav>li>a:hover {
+  color: #D0DDD6;
+  text-decoration: none;
+  background-color: transparent;
+}
+.navbar .nav>.active>a, .navbar .nav>.active>a:hover, .navbar .nav>.active>a:focus {
+  background-color: black;
+  color: white;
+}
+.muted{ color: white; }
+.well{
+  background-color: white;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+.item-size{
+  width: 100%;
+  height: 200px;
+}
+.evnt-title{
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 10px 5px;
 }

@@ -1,13 +1,15 @@
 {% extends "base.html"%}
 {% load static from staticfiles %}
 
+{% block title %}Events - {% endblock %}
+
 {% block navigator %}
               <ul class="nav">
                 <li><a href="{% url home %}">Home</a></li>
                 <li><a href="{% url products %}">Products</a></li>
                 <li class="active"><a href="{% url events %}">Events</a></li>
                 <li><a href="{% url gallery %}">Gallary</a></li>
-                <li><a href="{% url aboutus %}">About</a></li>
+                <li><a href="{% url aboutus %}">About us</a></li>
                 <li><a href="{% url contactus %}">Contact</a></li>
               </ul>
 {% endblock %}
@@ -20,14 +22,8 @@
             <br>
 
             {% for event in events %}
+            <h4 class="evnt-title">{{ event.title|capfirst }}</h4>
             <div class='row well lgap'>
-                <div class="{% if event.gallery_set.exists %}span6{% else %}span9{% endif %}">
-                    <h3>{{ event.title|capfirst }}</h3> 
-                    <p>{{ event.category }}</p>
-                    <p>{{ event.venue }}</p>
-                    <p>{{ event.date_of_event }}</p>
-                    <p>{{ event.description }}</p><br>
-                </div>
                 {% if event.gallery_set.exists %}
                 <div class="span3">
                     <a href="/media/{{ event.gallery_set.all.0.picture }}" class="thumbnail">
@@ -35,6 +31,13 @@
                     </a>
                 </div>
                 {% endif %}
+                <div class="{% if event.gallery_set.exists %}span6{% else %}span9{% endif %}">
+                    <!-- <h3>{{ event.title|capfirst }}</h3>  -->
+                    <!-- <p>{{ event.category }}</p> -->
+                    <p>{{ event.description }}</p><br>
+                    <p>{{ event.venue }}</p>
+                    <p>{{ event.date_of_event }}</p>
+                </div>
             </div>
             {% endfor %}
         </div>

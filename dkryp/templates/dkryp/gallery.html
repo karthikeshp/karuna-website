@@ -1,13 +1,15 @@
 {% extends "base.html"%}
 {% load static from staticfiles %}
 
+{% block title %}Gallery - {% endblock %}
+
 {% block navigator %}
               <ul class="nav">
                 <li><a href="{% url home %}">Home</a></li>
                 <li><a href="{% url products %}">Products</a></li>
                 <li><a href="{% url events %}">Events</a></li>
                 <li class="active"><a href="{% url gallery %}">Gallary</a></li>
-                <li><a href="{% url aboutus %}">About</a></li>
+                <li><a href="{% url aboutus %}">About us</a></li>
                 <li><a href="{% url contactus %}">Contact</a></li>
               </ul>
 {% endblock %}
@@ -23,9 +25,9 @@
                 {% for image in gallery %}
                 <li class="span3">
                     <a href="/media/{{ image.picture }}" class="thumbnail">
-                        <img src="/media/{{ image.picture }}"></img>
+                        <img class="item-size" src="/media/{{ image.picture }}"></img>
                     </a>
-                    <h4>{{ image|truncatechars:30 }}</h4> 
+                    <!-- <h4>{{ image|truncatechars:30 }}</h4>  -->
                 </li>
                 {% endfor %}
             </ul>

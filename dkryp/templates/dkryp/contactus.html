@@ -1,0 +1,64 @@
+{% extends "base.html"%}
+{% load static from staticfiles %}
+
+{% block title %}Our contact - {% endblock %}
+
+{% block navigator %}
+              <ul class="nav">
+                <li><a href="{% url home %}">Home</a></li>
+                <li><a href="{% url products %}">Products</a></li>
+                <li><a href="{% url events %}">Events</a></li>
+                <li><a href="{% url gallery %}">Gallary</a></li>
+                <li><a href="{% url aboutus %}">About us</a></li>
+                <li class="active"><a href="{% url contactus %}">Contact</a></li>
+              </ul>
+{% endblock %}
+
+{% block bigcontent %}{% endblock %}
+{% block content %}
+        <div class="row tgap">
+          <div class="span5">
+            <p>Feel free to contact our representatives at any time you please using our contact from on our website or send emails to our respective email addresses based on your location. We will contact you within an hour through your email or phone. You send your feedback through these communications.</p>
+
+            <form action='{% url contactus %}' method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Contact Form</legend>
+
+                    <label>Your Name *</label>
+                    <input type="text" name="name" maxlength='32' class="form-input" />
+                    
+                    <label>E-mail *</label>
+                    <input type="text" name="email" maxlength='32' class="form-input" />
+                    
+                    <label>Phone *</label>
+                    <input type="text" name="phone" maxlength='32' class="form-input" />
+                    
+                    <label>Your Message</label>
+                    <textarea name="message" maxlength="500" cols="20" rows="7" class="form-text" ></textarea>
+                    
+                    <br><button type="submit" class="btn btn-inverse">Submit</button>
+                </fieldset>
+            </form>
+          </div>
+          <div class="span5">
+            <img src='{% static "img/banner-contact-us.png" %}' class="contact-img" />
+            <div class="row tgap">
+                <div class="span5 well">
+                    <p><b>Company name Pvt Ltd.,</b></p>
+                    <p>12, Street name, Malaysia, 2000</p>
+                    <p>Telephone: + 11 - (11) 1111 1111</p>
+                    <p>FAX: + 11 - (11) 1111 1111</p>
+                    <p>E-mail: <a href="mailto:info@my.domain.com">info@my.domain.com</a></p>
+                </div>
+                <div class="span5 well">
+                    <p><b>Company name Pvt Ltd.,</b></p>
+                    <p>12, Street name, Chennai, 2000</p>
+                    <p>Telephone: + 11 - (11) 1111 1111</p>
+                    <p>FAX: + 11 - (11) 1111 1111</p>
+                    <p>E-mail: <a href="mailto:info@ch.domain.com">info@ch.domain.com</a></p>
+                </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}

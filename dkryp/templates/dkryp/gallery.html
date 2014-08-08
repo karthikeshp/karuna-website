@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+{% load static from staticfiles %}
+
+{% block title %}Gallery - {% endblock %}
+
+{% block navigator %}
+              <ul class="nav">
+                <li><a href="{% url home %}">Home</a></li>
+                <li><a href="{% url products %}">Products</a></li>
+                <li><a href="{% url events %}">Events</a></li>
+                <li class="active"><a href="{% url gallery %}">Gallary</a></li>
+                <li><a href="{% url aboutus %}">About us</a></li>
+                <li><a href="{% url contactus %}">Contact</a></li>
+              </ul>
+{% endblock %}
+
+{% block bigcontent %}{% endblock %}
+{% block content %}
+    <div class="row tgap">
+          <div class="span10">
+            <legend>Event gallery</legend>
+            <p>Here we have displayed some of our photo snaps from recently contacted events. </p>
+            <br>
+            <ul class="thumbnails">
+                {% for image in gallery %}
+                <li class="span3">
+                    <a href="/media/{{ image.picture }}" class="thumbnail">
+                        <img class="item-size" src="/media/{{ image.picture }}"></img>
+                    </a>
+                    <!-- <h4>{{ image|truncatechars:30 }}</h4>  -->
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% with pagi=gallery %}
+    {% include "pagination.html" %}
+    {% endwith %}
+{% endblock %}
